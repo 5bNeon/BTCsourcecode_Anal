@@ -1,3 +1,11 @@
+# 关于修改
+待更新...
+
+
+以下是BTC源码文档
+The following is the README in BTC 
+----------------------------------
+
 Bitcoin Core integration/staging tree
 =====================================
 
@@ -76,3 +84,5 @@ Translations are periodically pulled from Transifex and merged into the git repo
 
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
+
+
