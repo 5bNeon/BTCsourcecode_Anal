@@ -18,6 +18,7 @@ curl_multi_perform执行多个传输操作
 
 bitcoin监听rpc：
 bitcoin/src/rpc/mining.cpp中，最后cmds中各个名字对应该cpp文件中一个函数，
+
 包含submitblock和getblocktemplate等...
 其中blkmk_submit_jansson函数生成的json对象的method属性为submitblock
 Submitblock函数中包含
