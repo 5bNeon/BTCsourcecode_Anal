@@ -3,6 +3,7 @@ USER root
 RUN apt-get update
 RUN apt-get install -y wget net-tools inetutils-ping iptables vim git gcc-8 g++-8 curl
 
+
 # **bitcoin core install**
 # RUN cd / && mkdir src && cd /src &&  git clone https://github.com/Nathenial/bitcoin.git
 RUN cd / && mkdir src && cd /src
