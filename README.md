@@ -2,7 +2,7 @@
 ## 关于本仓库
 目前很难在公开网络上找到针对比特币核心程序代码的分析，本人在做相关项目的过程中对源码中一些关键功能（主要与挖矿、处理区块相关）的剖析，因此分享，希望能帮助更多研究BTC的朋友。
 
-关于该项目，设计并实现了一个[比特币公链自私挖矿攻击软件](https://github.com/5bNeon/Bitcoin-core-code_Analysis_and_Selfish_miner_core-code/tree/main/selfish_mining)，通过将该软件直接部署到比特币系统上，就能够实现自私交易节点并对系统发起自私挖矿攻击。
+关于该项目，设计并实现了一个[比特币公链自私挖矿攻击软件](https://github.com/5bNeon/Bitcoin-core-code_Analysis_and_Selfish_miner_core-code/tree/main/selfish_mining)，通过将该软件直接部署([部署教程](https://github.com/5bNeon/Bitcoin-core-code_Analysis_and_Selfish_miner_core-code/tree/main/DEPLOY_DOC.md))到比特币系统上，就能够实现自私交易节点并对系统发起自私挖矿攻击。
 创新性工作体现在三方面：
 * 本工作在相关领域内首次对比特币核心程序中与挖矿相关的代码进行了研究分析。
 * 本工作通过对比特币核心程序进行修改实现了可以部署在比特币系统执行自私挖矿策略的自私挖矿攻击软件。
