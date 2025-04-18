@@ -21,6 +21,8 @@ ProcessBlock -> ProcessHonBlock -> AcceptHonBlock写入磁盘 ->NewPowValidBlock
 若s-h>1，则CS_AcceptBlock函数直接返回false
 
 ## 私有链构造
+continued...
+
 
 
 以下是BTC源码文档
