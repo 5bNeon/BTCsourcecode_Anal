@@ -1,5 +1,26 @@
 # 关于修改
-待更新...
+## 收到自己挖到的区块
+（Modified code section: src/validation.cpp, src/validation.h）
+1.	由rpc里的函数调用ChainstateManager::ProcessNewBlock
+2.	在ProcessNewBlock里通过CheckBlock检查工作量等信息
+3.	ProcessNewBlock获取一个CChainState对象，由它调用自己类的AcceptBlock函数
+4.	在AcceptBlock函数中判断，调用AcceptBlockHeader函数，若合法，则将该区块存到自私链vector中，s++。
+若h=1且s=2，则正常进行后续操作并调用NewPoWValidBlock函数一个个公开自私链的区块，最后将s/h清零，清空vector；
+否则，进行后续操作，不在网络公开但存储到磁盘，s++；
+
+## 收到诚实矿工挖的区块
+(Modified code section: src/validation.cpp, src/validation.h, src/net_processing.cpp)
+
+ProcessBlock -> ProcessHonBlock -> AcceptHonBlock写入磁盘 ->NewPowValidBlock发送给对等节点CMPCT消息
+1.	ProcessHonBlock获取一个CChainState对象，由它调用自己类的AcceptHonBlock函数
+2.	在CS_AcceptBlock函数中判断当前hash与vector最后一个元素的hash的关系，如果合法则存储到vector，h++；
+检查 若s=0，则直接对公开链vector中的区块（一定有且仅有一个）进行调用AcceptBlockHeader函数等流程完成公开和同步，最后将s/h清零，清空vector；
+若s=1且h=1，则CS_AcceptBlock函数直接返回false
+若s=1且h=2，则对公开链vector中的区块进行调用AcceptBlockHeader函数等流程完成公开和同步，最后将s/h清零，清空vector；
+若s-h=1，则对自私链vector中的区块进行调用AcceptBlockHeader函数等流程完成公开和同步，最后将s/h清零，清空vector；
+若s-h>1，则CS_AcceptBlock函数直接返回false
+
+## 私有链构造
 
 
 以下是BTC源码文档
